@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: SimPL-2.0
 pragma solidity=0.6.9;
 
-import '../interfaces/IMiniswapV2Pair.sol';
+import '../interfaces/IMiniswapPair.sol';
 import './FixedPoint.sol';
 
 // library with helper methods for oracles that are concerned with computing average prices
@@ -18,11 +18,11 @@ library MiniswapV2OracleLibrary {
         address pair
     ) internal view returns (uint price0Cumulative, uint price1Cumulative, uint32 blockTimestamp) {
         blockTimestamp = currentBlockTimestamp();
-        price0Cumulative = IMiniswapV2Pair(pair).price0CumulativeLast();
-        price1Cumulative = IMiniswapV2Pair(pair).price1CumulativeLast();
+        price0Cumulative = IMiniswapPair(pair).price0CumulativeLast();
+        price1Cumulative = IMiniswapPair(pair).price1CumulativeLast();
 
         // if time has elapsed since the last update on the pair, mock the accumulated price values
-        (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast) = IMiniswapV2Pair(pair).getReserves();
+        (uint112 reserve0, uint112 reserve1,,uint32 blockTimestampLast) = IMiniswapPair(pair).getReserves();
         if (blockTimestampLast != blockTimestamp) {
             // subtraction overflow is desired
             uint32 timeElapsed = blockTimestamp - blockTimestampLast;

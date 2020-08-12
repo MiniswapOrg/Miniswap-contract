@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: SimPL-2.0
 pragma solidity=0.6.9;
 
-interface IMiniswapV2Factory {
+interface IMiniswapFactory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
 
     function feeTo() external view returns (address);

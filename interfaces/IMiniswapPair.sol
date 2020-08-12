@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: SimPL-2.0
 pragma solidity=0.6.9;
 
-interface IMiniswapV2Pair {
+interface IMiniswapPair {
     event Mint(address indexed sender, uint amount0, uint amount1);
     event Burn(address indexed sender, uint amount0, uint amount1,uint amountMINI, address indexed to);
     event Swap(
@@ -20,7 +20,7 @@ interface IMiniswapV2Pair {
     function token0() external view returns (address);
     function token1() external view returns (address);
     function MINI() external view returns (address);
-    function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);
+    function getReserves() external view returns (uint112 reserve0, uint112 reserve1,uint112 reservemini, uint32 blockTimestampLast);
     function price0CumulativeLast() external view returns (uint);
     function price1CumulativeLast() external view returns (uint);
     function kLast() external view returns (uint);

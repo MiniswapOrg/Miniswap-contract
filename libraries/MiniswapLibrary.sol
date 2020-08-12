@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: SimPL-2.0
 pragma solidity=0.6.9;
 
-import '../interfaces/IMiniswapV2Pair.sol';
+import '../interfaces/IMiniswapPair.sol';
 
 import "./SafeMath.sol";
 
-library MiniswapV2Library {
+library MiniswapLibrary {
     using SafeMath for uint;
 
     // returns sorted token addresses, used to handle return values from pairs sorted in this order
@@ -22,15 +22,16 @@ library MiniswapV2Library {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'8ab86c757e1ee04384cdc8786e40bac0c629d13935304d4be9b357bd242928b4' // init code hash
+                hex'af99c4b8a8ff362d03201e9b47833f197a849715b8f4625bb0aa7f3a11897ba4' // init code hash
             ))));
     }
 
     // fetches and sorts the reserves for a pair
-    function getReserves(address factory, address tokenA, address tokenB) internal view returns (uint reserveA, uint reserveB) {
+    function getReserves(address factory, address tokenA, address tokenB) internal view returns (uint reserveA, uint reserveB,uint reserveMini) {
         (address token0,) = sortTokens(tokenA, tokenB);
-        (uint reserve0, uint reserve1,) = IMiniswapV2Pair(pairFor(factory, tokenA, tokenB)).getReserves();
+        (uint reserve0, uint reserve1,uint reservemini,) = IMiniswapPair(pairFor(factory, tokenA, tokenB)).getReserves();
         (reserveA, reserveB) = tokenA == token0 ? (reserve0, reserve1) : (reserve1, reserve0);
+        reserveMini = reservemini;
     }
 
     // given some amount of an asset and pair reserves, returns an equivalent amount of the other asset
@@ -82,7 +83,7 @@ library MiniswapV2Library {
         amounts = new uint[](path.length);
         amounts[0] = amountIn;
         for (uint i; i < path.length - 1; i++) {
-            (uint reserveIn, uint reserveOut) = getReserves(factory, path[i], path[i + 1]);
+            (uint reserveIn, uint reserveOut,) = getReserves(factory, path[i], path[i + 1]);
             amounts[i + 1] = getAmountOut(amounts[i], reserveIn, reserveOut);
         }
     }
@@ -92,7 +93,7 @@ library MiniswapV2Library {
         amounts = new uint[](path.length);
         amounts[0] = amountIn;
         for (uint i; i < path.length - 1; i++) {
-            (uint reserveIn, uint reserveOut) = getReserves(factory, path[i], path[i + 1]);
+            (uint reserveIn, uint reserveOut,) = getReserves(factory, path[i], path[i + 1]);
             amounts[i + 1] = getAmountOutWithNoFee(amounts[i], reserveIn, reserveOut);
         }
     }
@@ -103,7 +104,7 @@ library MiniswapV2Library {
         amounts = new uint[](path.length);
         amounts[amounts.length - 1] = amountOut;
         for (uint i = path.length - 1; i > 0; i--) {
-            (uint reserveIn, uint reserveOut) = getReserves(factory, path[i - 1], path[i]);
+            (uint reserveIn, uint reserveOut,) = getReserves(factory, path[i - 1], path[i]);
             amounts[i - 1] = getAmountIn(amounts[i], reserveIn, reserveOut);
         }
     }
@@ -113,7 +114,7 @@ library MiniswapV2Library {
         amounts = new uint[](path.length);
         amounts[amounts.length - 1] = amountOut;
         for (uint i = path.length - 1; i > 0; i--) {
-            (uint reserveIn, uint reserveOut) = getReserves(factory, path[i - 1], path[i]);
+            (uint reserveIn, uint reserveOut,) = getReserves(factory, path[i - 1], path[i]);
             amounts[i - 1] = getAmountInWithNoFee(amounts[i], reserveIn, reserveOut);
         }
     }
@@ -121,9 +122,9 @@ library MiniswapV2Library {
     function getIssueAmountLimit(uint256 durationDay) internal pure returns(uint256 amount){
         ///////The 6000 block height is one day, 30 day is one month
         uint durationMonth = durationDay.div(30);
-        amount = 18000;
+        amount = 18000 * (10**18);
         if (durationMonth < 10) {
-            amount =  uint(500000).mul(7**durationMonth).div(10**durationMonth);
+            amount =  uint(500000 * (10**18)).mul(7**durationMonth).div(10**durationMonth);
         }
     }
 }
