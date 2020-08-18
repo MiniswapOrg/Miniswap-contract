@@ -5,7 +5,7 @@ import '../interfaces/IMiniswapPair.sol';
 import './FixedPoint.sol';
 
 // library with helper methods for oracles that are concerned with computing average prices
-library MiniswapV2OracleLibrary {
+library MiniswapOracleLibrary {
     using FixedPoint for *;
 
     // helper function that returns the current block timestamp within the range of uint32, i.e. [0, 2**32 - 1]
@@ -22,7 +22,7 @@ library MiniswapV2OracleLibrary {
         price1Cumulative = IMiniswapPair(pair).price1CumulativeLast();
 
         // if time has elapsed since the last update on the pair, mock the accumulated price values
-        (uint112 reserve0, uint112 reserve1,,uint32 blockTimestampLast) = IMiniswapPair(pair).getReserves();
+        (uint112 reserve0, uint112 reserve1,uint32 blockTimestampLast) = IMiniswapPair(pair).getReserves();
         if (blockTimestampLast != blockTimestamp) {
             // subtraction overflow is desired
             uint32 timeElapsed = blockTimestamp - blockTimestampLast;

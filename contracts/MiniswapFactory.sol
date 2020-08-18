@@ -28,10 +28,10 @@ contract MiniswapFactory is IMiniswapFactory {
     }
 
     function createPair(address tokenA, address tokenB) override external returns (address pair) {
-        require(tokenA != tokenB, 'MiniswapV2: IDENTICAL_ADDRESSES');
+        require(tokenA != tokenB, 'Miniswap: IDENTICAL_ADDRESSES');
         (address token0, address token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);
-        require(token0 != address(0), 'MiniswapV2: ZERO_ADDRESS');
-        require(getPair[token0][token1] == address(0), 'MiniswapV2: PAIR_EXISTS'); // single check is sufficient
+        require(token0 != address(0), 'Miniswap: ZERO_ADDRESS');
+        require(getPair[token0][token1] == address(0), 'Miniswap: PAIR_EXISTS'); // single check is sufficient
         bytes memory bytecode = type(MiniswapPair).creationCode;
         bytes32 salt = keccak256(abi.encodePacked(token0, token1));
         assembly {
@@ -45,12 +45,12 @@ contract MiniswapFactory is IMiniswapFactory {
     }
 
     function setFeeTo(address _feeTo) override external {
-        require(msg.sender == feeToSetter, 'MiniswapV2: FORBIDDEN');
+        require(msg.sender == feeToSetter, 'Miniswap: FORBIDDEN');
         feeTo = _feeTo;
     }
 
     function setFeeToSetter(address _feeToSetter) override external {
-        require(msg.sender == feeToSetter, 'MiniswapV2: FORBIDDEN');
+        require(msg.sender == feeToSetter, 'Miniswap: FORBIDDEN');
         feeToSetter = _feeToSetter;
     }
 }

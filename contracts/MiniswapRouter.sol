@@ -20,7 +20,7 @@ contract MiniswapRouter is IMiniswapRouter {
     address public immutable override MINI;
 
     modifier ensure(uint deadline) {
-        require(deadline >= block.timestamp, 'MiniswapV2Router: EXPIRED');
+        require(deadline >= block.timestamp, 'MiniswapRouter: EXPIRED');
         _;
     }
 
@@ -42,26 +42,24 @@ contract MiniswapRouter is IMiniswapRouter {
         uint amountBDesired,
         uint amountAMin,
         uint amountBMin
-    ) internal virtual returns (uint amountA, uint amountB,uint amountMini) {
+    ) internal virtual returns (uint amountA, uint amountB) {
         // create the pair if it doesn't exist yet
         if (IMiniswapFactory(factory).getPair(tokenA, tokenB) == address(0)) {
             IMiniswapFactory(factory).createPair(tokenA, tokenB);
         }
-        (uint reserveA, uint reserveB,uint reserveMini) = MiniswapLibrary.getReserves(factory, tokenA, tokenB);
+        (uint reserveA, uint reserveB) = MiniswapLibrary.getReserves(factory, tokenA, tokenB);
         if (reserveA == 0 && reserveB == 0) {
-            (amountA, amountB,amountMini) = (amountADesired, amountBDesired,0);
+            (amountA, amountB) = (amountADesired, amountBDesired);
         } else {
             uint amountBOptimal = MiniswapLibrary.quote(amountADesired, reserveA, reserveB);
             if (amountBOptimal <= amountBDesired) {
-                require(amountBOptimal >= amountBMin, 'MiniswapV2Router: INSUFFICIENT_B_AMOUNT');
-                uint amountMiniOptimal = MiniswapLibrary.quote(amountBOptimal,reserveB,reserveMini);
-                (amountA, amountB ,amountMini) = (amountADesired, amountBOptimal,amountMiniOptimal);
+                require(amountBOptimal >= amountBMin, 'MiniswapRouter: INSUFFICIENT_B_AMOUNT');
+                (amountA, amountB ) = (amountADesired, amountBOptimal);
             } else {
                 uint amountAOptimal = MiniswapLibrary.quote(amountBDesired, reserveB, reserveA);
                 assert(amountAOptimal <= amountADesired);
-                require(amountAOptimal >= amountAMin, 'MiniswapV2Router: INSUFFICIENT_A_AMOUNT');
-                uint amountMiniOptimal = MiniswapLibrary.quote(amountAOptimal,reserveA,reserveMini);
-                (amountA, amountB,amountMini) = (amountAOptimal, amountBDesired ,amountMiniOptimal);
+                require(amountAOptimal >= amountAMin, 'MiniswapRouter: INSUFFICIENT_A_AMOUNT');
+                (amountA, amountB) = (amountAOptimal, amountBDesired);
             }
         }
     }
@@ -74,12 +72,11 @@ contract MiniswapRouter is IMiniswapRouter {
         uint amountBMin,
         address to,
         uint deadline
-    ) external virtual override ensure(deadline) returns (uint amountA, uint amountB,uint amountMini, uint liquidity) {
-        (amountA, amountB,amountMini) = _addLiquidity(tokenA, tokenB, amountADesired,amountBDesired, amountAMin, amountBMin);
+    ) external virtual override ensure(deadline) returns (uint amountA, uint amountB, uint liquidity) {
+        (amountA, amountB) = _addLiquidity(tokenA, tokenB, amountADesired,amountBDesired, amountAMin, amountBMin);
         address pair = MiniswapLibrary.pairFor(factory, tokenA, tokenB);
         TransferHelper.safeTransferFrom(tokenA, msg.sender, pair, amountA);
         TransferHelper.safeTransferFrom(tokenB, msg.sender, pair, amountB);
-        TransferHelper.safeTransferFrom(MINI,msg.sender,pair,amountMini);
         liquidity = IMiniswapPair(pair).mint(to);
     }
     function addLiquidityETH(
@@ -89,8 +86,8 @@ contract MiniswapRouter is IMiniswapRouter {
         uint amountETHMin,
         address to,
         uint deadline
-    ) external virtual override payable ensure(deadline) returns (uint amountToken, uint amountETH, uint amountMini,uint liquidity) {
-        (amountToken, amountETH,amountMini) = _addLiquidity(
+    ) external virtual override payable ensure(deadline) returns (uint amountToken, uint amountETH,uint liquidity) {
+        (amountToken, amountETH) = _addLiquidity(
             token,
             WETH,
             amountTokenDesired,
@@ -100,7 +97,6 @@ contract MiniswapRouter is IMiniswapRouter {
         );
         address pair = MiniswapLibrary.pairFor(factory, token, WETH);
         TransferHelper.safeTransferFrom(token, msg.sender, pair, amountToken);
-        TransferHelper.safeTransferFrom(MINI,msg.sender,pair,amountMini);
         IWETH(WETH).deposit{value: amountETH}();
         assert(IWETH(WETH).transfer(pair, amountETH));
         liquidity = IMiniswapPair(pair).mint(to);
@@ -124,8 +120,8 @@ contract MiniswapRouter is IMiniswapRouter {
         (address token0,) = MiniswapLibrary.sortTokens(tokenA, tokenB);
         amountInfo.amountMini = amountmini;
         (amountInfo.amountA, amountInfo.amountB) = tokenA == token0 ? (amount0, amount1) : (amount1, amount0);
-        require(amountInfo.amountA >= amountAMin, 'MiniswapV2Router: INSUFFICIENT_A_AMOUNT');
-        require(amountInfo.amountB >= amountBMin, 'MiniswapV2Router: INSUFFICIENT_B_AMOUNT');
+        require(amountInfo.amountA >= amountAMin, 'MiniswapRouter: INSUFFICIENT_A_AMOUNT');
+        require(amountInfo.amountB >= amountBMin, 'MiniswapRouter: INSUFFICIENT_B_AMOUNT');
     }
     function removeLiquidityETH(
         address token,
@@ -241,7 +237,7 @@ contract MiniswapRouter is IMiniswapRouter {
         uint deadline
     ) external virtual override ensure(deadline) returns (uint[] memory amounts) {
         amounts = MiniswapLibrary.getAmountsOut(factory, amountIn, path);
-        require(amounts[amounts.length - 1] >= amountOutMin, 'MiniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT');
+        require(amounts[amounts.length - 1] >= amountOutMin, 'MiniswapRouter: INSUFFICIENT_OUTPUT_AMOUNT');
         TransferHelper.safeTransferFrom(
             path[0], msg.sender, MiniswapLibrary.pairFor(factory, path[0], path[1]), amounts[0]
         );
@@ -255,7 +251,7 @@ contract MiniswapRouter is IMiniswapRouter {
         uint deadline
     ) external virtual override ensure(deadline) returns (uint[] memory amounts) {
         amounts = MiniswapLibrary.getAmountsIn(factory, amountOut, path);
-        require(amounts[0] <= amountInMax, 'MiniswapV2Router: EXCESSIVE_INPUT_AMOUNT');
+        require(amounts[0] <= amountInMax, 'MiniswapRouter: EXCESSIVE_INPUT_AMOUNT');
         TransferHelper.safeTransferFrom(
             path[0], msg.sender, MiniswapLibrary.pairFor(factory, path[0], path[1]), amounts[0]
         );
@@ -269,13 +265,14 @@ contract MiniswapRouter is IMiniswapRouter {
         ensure(deadline)
         returns (uint[] memory amounts)
     {
-        require(path[0] == WETH, 'MiniswapV2Router: INVALID_PATH');
+        require(path[0] == WETH, 'MiniswapRouter: INVALID_PATH');
         amounts = MiniswapLibrary.getAmountsOut(factory, msg.value, path);
-        require(amounts[amounts.length - 1] >= amountOutMin, 'MiniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT');
+        require(amounts[amounts.length - 1] >= amountOutMin, 'MiniswapRouter: INSUFFICIENT_OUTPUT_AMOUNT');
         IWETH(WETH).deposit{value: amounts[0]}();
         assert(IWETH(WETH).transfer(MiniswapLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
         _swap(amounts, path, to);
     }
+    
     function swapTokensForExactETH(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)
         external
         virtual
@@ -283,16 +280,20 @@ contract MiniswapRouter is IMiniswapRouter {
         ensure(deadline)
         returns (uint[] memory amounts)
     {
-        require(path[path.length - 1] == WETH, 'MiniswapV2Router: INVALID_PATH');
+        require(path[path.length - 1] == WETH, 'MiniswapRouter: INVALID_PATH');
         amounts = MiniswapLibrary.getAmountsIn(factory, amountOut, path);
-        require(amounts[0] <= amountInMax, 'MiniswapV2Router: EXCESSIVE_INPUT_AMOUNT');
+        require(amounts[0] <= amountInMax, 'MiniswapRouter: EXCESSIVE_INPUT_AMOUNT');
         TransferHelper.safeTransferFrom(
             path[0], msg.sender, MiniswapLibrary.pairFor(factory, path[0], path[1]), amounts[0]
         );
+        uint b0 = IERC20(MINI).balanceOf(address(this));
         _swap(amounts, path, address(this));
+        uint b1 = IERC20(MINI).balanceOf(address(this));
+        IERC20(MINI).transfer(to,b1-b0);
         IWETH(WETH).withdraw(amounts[amounts.length - 1]);
         TransferHelper.safeTransferETH(to, amounts[amounts.length - 1]);
     }
+
     function swapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)
         external
         virtual
@@ -300,13 +301,16 @@ contract MiniswapRouter is IMiniswapRouter {
         ensure(deadline)
         returns (uint[] memory amounts)
     {
-        require(path[path.length - 1] == WETH, 'MiniswapV2Router: INVALID_PATH');
+        require(path[path.length - 1] == WETH, 'MiniswapRouter: INVALID_PATH');
         amounts = MiniswapLibrary.getAmountsOut(factory, amountIn, path);
-        require(amounts[amounts.length - 1] >= amountOutMin, 'MiniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT');
+        require(amounts[amounts.length - 1] >= amountOutMin, 'MiniswapRouter: INSUFFICIENT_OUTPUT_AMOUNT');
         TransferHelper.safeTransferFrom(
             path[0], msg.sender, MiniswapLibrary.pairFor(factory, path[0], path[1]), amounts[0]
         );
+        uint b0 = IERC20(MINI).balanceOf(address(this));
         _swap(amounts, path, address(this));
+        uint b1 = IERC20(MINI).balanceOf(address(this));
+        IERC20(MINI).transfer(to,b1-b0);
         IWETH(WETH).withdraw(amounts[amounts.length - 1]);
         TransferHelper.safeTransferETH(to, amounts[amounts.length - 1]);
     }
@@ -318,9 +322,9 @@ contract MiniswapRouter is IMiniswapRouter {
         ensure(deadline)
         returns (uint[] memory amounts)
     {
-        require(path[0] == WETH, 'MiniswapV2Router: INVALID_PATH');
+        require(path[0] == WETH, 'MiniswapRouter: INVALID_PATH');
         amounts = MiniswapLibrary.getAmountsIn(factory, amountOut, path);
-        require(amounts[0] <= msg.value, 'MiniswapV2Router: EXCESSIVE_INPUT_AMOUNT');
+        require(amounts[0] <= msg.value, 'MiniswapRouter: EXCESSIVE_INPUT_AMOUNT');
         IWETH(WETH).deposit{value: amounts[0]}();
         assert(IWETH(WETH).transfer(MiniswapLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
         _swap(amounts, path, to);
@@ -338,7 +342,7 @@ contract MiniswapRouter is IMiniswapRouter {
             uint amountInput;
             uint amountOutput;
             { // scope to avoid stack too deep errors
-            (uint reserve0, uint reserve1,,) = pair.getReserves();
+            (uint reserve0, uint reserve1,) = pair.getReserves();
             (uint reserveInput, uint reserveOutput) = input == token0 ? (reserve0, reserve1) : (reserve1, reserve0);
             amountInput = IERC20(input).balanceOf(address(pair)).sub(reserveInput);
             amountOutput = MiniswapLibrary.getAmountOut(amountInput, reserveInput, reserveOutput);
@@ -362,7 +366,7 @@ contract MiniswapRouter is IMiniswapRouter {
         _swapSupportingFeeOnTransferTokens(path, to);
         require(
             IERC20(path[path.length - 1]).balanceOf(to).sub(balanceBefore) >= amountOutMin,
-            'MiniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT'
+            'MiniswapRouter: INSUFFICIENT_OUTPUT_AMOUNT'
         );
     }
     function swapExactETHForTokensSupportingFeeOnTransferTokens(
@@ -377,7 +381,7 @@ contract MiniswapRouter is IMiniswapRouter {
         payable
         ensure(deadline)
     {
-        require(path[0] == WETH, 'MiniswapV2Router: INVALID_PATH');
+        require(path[0] == WETH, 'MiniswapRouter: INVALID_PATH');
         uint amountIn = msg.value;
         IWETH(WETH).deposit{value: amountIn}();
         assert(IWETH(WETH).transfer(MiniswapLibrary.pairFor(factory, path[0], path[1]), amountIn));
@@ -385,7 +389,7 @@ contract MiniswapRouter is IMiniswapRouter {
         _swapSupportingFeeOnTransferTokens(path, to);
         require(
             IERC20(path[path.length - 1]).balanceOf(to).sub(balanceBefore) >= amountOutMin,
-            'MiniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT'
+            'MiniswapRouter: INSUFFICIENT_OUTPUT_AMOUNT'
         );
     }
     function swapExactTokensForETHSupportingFeeOnTransferTokens(
@@ -400,13 +404,13 @@ contract MiniswapRouter is IMiniswapRouter {
         override
         ensure(deadline)
     {
-        require(path[path.length - 1] == WETH, 'MiniswapV2Router: INVALID_PATH');
+        require(path[path.length - 1] == WETH, 'MiniswapRouter: INVALID_PATH');
         TransferHelper.safeTransferFrom(
             path[0], msg.sender, MiniswapLibrary.pairFor(factory, path[0], path[1]), amountIn
         );
         _swapSupportingFeeOnTransferTokens(path, address(this));
         uint amountOut = IERC20(WETH).balanceOf(address(this));
-        require(amountOut >= amountOutMin, 'MiniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT');
+        require(amountOut >= amountOutMin, 'MiniswapRouter: INSUFFICIENT_OUTPUT_AMOUNT');
         IWETH(WETH).withdraw(amountOut);
         TransferHelper.safeTransferETH(to, amountOut);
     }

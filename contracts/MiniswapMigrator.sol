@@ -31,7 +31,7 @@ contract MiniswapMigrator is IMiniswapMigrator {
         require(exchangeV1.transferFrom(msg.sender, address(this), liquidityV1), 'TRANSFER_FROM_FAILED');
         (uint amountETHV1, uint amountTokenV1) = exchangeV1.removeLiquidity(liquidityV1, 1, 1, uint(-1));
         TransferHelper.safeApprove(token, address(router), amountTokenV1);
-        (uint amountTokenV2, uint amountETHV2,,) = router.addLiquidityETH{value: amountETHV1}(
+        (uint amountToken, uint amountETH,) = router.addLiquidityETH{value: amountETHV1}(
             token,
             amountTokenV1,
             amountTokenMin,
@@ -39,12 +39,12 @@ contract MiniswapMigrator is IMiniswapMigrator {
             to,
             deadline
         );
-        if (amountTokenV1 > amountTokenV2) {
+        if (amountTokenV1 > amountToken) {
             TransferHelper.safeApprove(token, address(router), 0); // be a good blockchain citizen, reset allowance to 0
-            TransferHelper.safeTransfer(token, msg.sender, amountTokenV1 - amountTokenV2);
-        } else if (amountETHV1 > amountETHV2) {
+            TransferHelper.safeTransfer(token, msg.sender, amountTokenV1 - amountToken);
+        } else if (amountETHV1 > amountETH) {
             // addLiquidityETH guarantees that all of amountETHV1 or amountTokenV1 will be used, hence this else is safe
-            TransferHelper.safeTransferETH(msg.sender, amountETHV1 - amountETHV2);
+            TransferHelper.safeTransferETH(msg.sender, amountETHV1 - amountETH);
         }
     }
 }

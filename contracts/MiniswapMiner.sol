@@ -14,7 +14,6 @@ contract MiniswapMiner is IMiniswapMiner{
     
     address public override owner;
     address public override feeder;
-    address public override developer;
 
     mapping(address=>bool) public override whitelistMap;
     mapping(uint256=>uint256) public override mineInfo; // day=>issueAmount
@@ -24,15 +23,16 @@ contract MiniswapMiner is IMiniswapMiner{
 
     uint256 firstTxHeight;
     address MINI;
+    address USDT;
     mapping (uint=>mapping(address=>bool)) rewardMap;
     mapping (uint=>uint) rewardAmountByRoundMap;
 
-    constructor(uint256 _minFee,address _mini,address _feeder,address _developer) public {
+    constructor(uint256 _minFee,address _mini,address _usdt,address _feeder) public {
         owner = msg.sender;
         minFee = _minFee;
         MINI = _mini;
+        USDT = _usdt;
         feeder = _feeder;
-        developer = _developer;
         firstTxHeight = block.number;
     }
 
@@ -73,30 +73,58 @@ contract MiniswapMiner is IMiniswapMiner{
         removeWhitelist(pair);
     }
 
-    function mining(address factory,address to,address token,uint amount) override public isWhiteAddress(){
+    function mining(address factory,address feeTemp,address to,address token,uint amount) override public isWhiteAddress(){
         TransferHelper.safeTransferFrom(token,msg.sender,address(this),amount);
+        uint issueAmount;
+        uint miniAmount;
         if (token == MINI){
             //send half of increment to address0,the other send to feeder
-            TransferHelper.safeTransfer(MINI,address(0x1111111111111111111111111111111111111111), amount.div(2));
-            TransferHelper.safeTransfer(MINI,feeder, amount.sub(amount.div(2)));
-            issueMini(amount,to);
-        } else {
-         //get price from token-USDT-MINI
+            issueAmount = amount;
+            miniAmount = amount;
+        } else if (token == USDT) {
+            //get price from token-USDT-MINI
             address[] memory path = new address[](2);
             path[0] = token;
             path[1] = MINI;
-            uint256[] memory amountsOut = MiniswapLibrary.getAmountsOut(factory,amount,path); //[tokenAmountOut,USDTAmountOut,MINIAmountOut]
-
-            uint256 issueAmount = amountsOut[1];
+            uint256[] memory amountsOut = MiniswapLibrary.getAmountsOut(factory,amount,path); //[USDTAmountOut,MINIAmountOut]
+            issueAmount = amountsOut[1];
             //only mine when usdtout more than minFee
             if(issueAmount<= minFee)
                 return;
-            swapMini(factory,token,issueAmount,amount); 
-            issueMini(issueAmount,to);
+            miniAmount = swapMini(factory,USDT,issueAmount,amountsOut[0]); //usdt-->mini
+        } else {
+         //get price from token-USDT-MINI
+            address[] memory path = new address[](3);
+            path[0] = token;
+            path[1] = USDT;
+            path[2] = MINI;
+            uint256[] memory amountsOut = MiniswapLibrary.getAmountsOut(factory,amount,path); //[tokenAmountOut,USDTAmountOut,MINIAmountOut]
+            issueAmount = amountsOut[2];
+            //only mine when usdtout more than minFee
+            if(issueAmount<= minFee)
+                return;
+            uint usdtAmount = swapUsdt(factory,token,amountsOut[1],amount); //token-->usdt
+            miniAmount = swapMini(factory,USDT,issueAmount,usdtAmount); //usdt-->mini
         }
+        //send half of increment to address0,the other half send to feeder
+        TransferHelper.safeTransfer(MINI,address(0x1111111111111111111111111111111111111111), miniAmount.div(2));
+        TransferHelper.safeTransfer(MINI,feeder, miniAmount.div(2));
+        issueMini(issueAmount,feeTemp,to);
     }
 
-    function swapMini(address factory, address token,uint issueAmount,uint amount) internal {
+    function swapUsdt(address factory, address token,uint usdtAmount,uint amount) internal returns(uint){
+        uint256 balance0 = IERC20(USDT).balanceOf(address(this));
+        (address token0,address token1) = MiniswapLibrary.sortTokens(token,USDT);
+        address pair_token_usdt = MiniswapLibrary.pairFor(factory,token0,token1);
+        (uint amount0Out ,uint amount1Out) = token0==token ? (uint(0),usdtAmount):(usdtAmount,uint(0));
+        TransferHelper.safeTransfer(token,pair_token_usdt,amount); //send token to pair
+        IMiniswapPair(pair_token_usdt).swap(
+                amount0Out, amount1Out, address(this), new bytes(0)
+            );
+        return IERC20(USDT).balanceOf(address(this)).sub(balance0);
+    }
+
+    function swapMini(address factory, address token,uint issueAmount,uint amount) internal returns(uint){
         uint256 balance0 = IERC20(MINI).balanceOf(address(this));
         (address token0,address token1) = MiniswapLibrary.sortTokens(token,MINI);
         address pair_token_mini = MiniswapLibrary.pairFor(factory,token0,token1);
@@ -105,13 +133,10 @@ contract MiniswapMiner is IMiniswapMiner{
         IMiniswapPair(pair_token_mini).swap(
                 amount0Out, amount1Out, address(this), new bytes(0)
             );
-        uint miniAmount = IERC20(MINI).balanceOf(address(this)).sub(balance0);
-        //send half of increment to address0,the other half send to feeder
-        TransferHelper.safeTransfer(MINI,address(0x1111111111111111111111111111111111111111), miniAmount.div(2));
-        TransferHelper.safeTransfer(MINI,feeder, miniAmount.div(2));
+        return IERC20(MINI).balanceOf(address(this)).sub(balance0);
     }
 
-    function issueMini(uint256 issueAmount,address to) internal{
+    function issueMini(uint256 issueAmount,address feeTemp,address to) internal {
         ///////The 6000 block height is one day, 30 day is one month
         uint durationDay = (block.number.sub(firstTxHeight)).div(6000);
         uint256 issueAmountLimit = MiniswapLibrary.getIssueAmountLimit(durationDay);
@@ -119,12 +144,9 @@ contract MiniswapMiner is IMiniswapMiner{
         if( mineInfo[durationDay].add(issueAmount).add(issueAmount) > issueAmountLimit){
             issueAmount = issueAmountLimit.sub( mineInfo[durationDay]).div(2);
         }
-        uint issueAmount_90 = issueAmount.mul(90).div(100);
-        uint issueAmount_10 = issueAmount.sub(issueAmount_90);
         if(issueAmount > 0){
-            IMini(MINI).issueTo(to,issueAmount_90);
-            IMini(MINI).issueTo(msg.sender,issueAmount_90);
-            IMini(MINI).issueTo(developer,issueAmount_10.mul(2));
+            IMini(MINI).issueTo(to,issueAmount);
+            IMini(MINI).issueTo(feeTemp,issueAmount);
             mineInfo[durationDay] = mineInfo[durationDay].add(issueAmount).add(issueAmount);
         }
     }

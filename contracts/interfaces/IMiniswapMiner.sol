@@ -7,7 +7,6 @@ interface IMiniswapMiner {
 
     function owner() external view returns(address);
     function feeder() external view returns(address);
-    function developer() external view returns(address);
 
     function whitelistMap(address) external view returns(bool);
     function mineInfo(uint256) external view returns(uint256);
@@ -19,5 +18,5 @@ interface IMiniswapMiner {
     function removeWhitelist(address) external;
     function removeWhitelistByTokens(address,address,address) external;
 
-    function mining(address,address,address,uint) external;//factory receiver token amount
+    function mining(address,address,address,address,uint) external;//factory receiver token amount
 }

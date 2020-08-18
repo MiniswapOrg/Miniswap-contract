@@ -22,7 +22,7 @@ interface IMiniswapRouter {
         uint amountBMin,
         address to,
         uint deadline
-    ) external returns (uint amountA, uint amountB,uint amountMini, uint liquidity);
+    ) external returns (uint amountA, uint amountB, uint liquidity);
     function addLiquidityETH(
         address token,
         uint amountTokenDesired,
@@ -30,7 +30,7 @@ interface IMiniswapRouter {
         uint amountETHMin,
         address to,
         uint deadline
-    ) external payable returns (uint amountToken, uint amountETH, uint amountMini,uint liquidity);
+    ) external payable returns (uint amountToken, uint amountETH,uint liquidity);
     function removeLiquidity(
         address tokenA,
         address tokenB,

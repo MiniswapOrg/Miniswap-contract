@@ -33,15 +33,15 @@
     "absolutePath": "/Users/yinwei/work/miniswap/contracts/interfaces/V1/IMiniswapV1Factory.sol",
     "exportedSymbols": {
       "IMiniswapV1Factory": [
-        8176
+        10142
       ]
     },
-    "id": 8177,
+    "id": 10143,
     "license": "SimPL-2.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8168,
+        "id": 10134,
         "literals": [
           "solidity",
           "=",
@@ -49,7 +49,7 @@
           ".9"
         ],
         "nodeType": "PragmaDirective",
-        "src": "38:22:20"
+        "src": "38:22:22"
       },
       {
         "abstract": false,
@@ -58,9 +58,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 8176,
+        "id": 10142,
         "linearizedBaseContracts": [
-          8176
+          10142
         ],
         "name": "IMiniswapV1Factory",
         "nodeType": "ContractDefinition",
@@ -69,7 +69,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "06f2bf62",
-            "id": 8175,
+            "id": 10141,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -77,18 +77,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 8171,
+              "id": 10137,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8170,
+                  "id": 10136,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 8175,
-                  "src": "118:7:20",
+                  "scope": 10141,
+                  "src": "118:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -96,10 +96,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8169,
+                    "id": 10135,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "118:7:20",
+                    "src": "118:7:22",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -110,21 +110,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "117:9:20"
+              "src": "117:9:22"
             },
             "returnParameters": {
-              "id": 8174,
+              "id": 10140,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8173,
+                  "id": 10139,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 8175,
-                  "src": "150:7:20",
+                  "scope": 10141,
+                  "src": "150:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -132,10 +132,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8172,
+                    "id": 10138,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "150:7:20",
+                    "src": "150:7:22",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -146,34 +146,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "149:9:20"
+              "src": "149:9:22"
             },
-            "scope": 8176,
-            "src": "97:62:20",
+            "scope": 10142,
+            "src": "97:62:22",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 8177,
-        "src": "62:99:20"
+        "scope": 10143,
+        "src": "62:99:22"
       }
     ],
-    "src": "38:124:20"
+    "src": "38:124:22"
   },
   "legacyAST": {
     "absolutePath": "/Users/yinwei/work/miniswap/contracts/interfaces/V1/IMiniswapV1Factory.sol",
     "exportedSymbols": {
       "IMiniswapV1Factory": [
-        8176
+        10142
       ]
     },
-    "id": 8177,
+    "id": 10143,
     "license": "SimPL-2.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8168,
+        "id": 10134,
         "literals": [
           "solidity",
           "=",
@@ -181,7 +181,7 @@
           ".9"
         ],
         "nodeType": "PragmaDirective",
-        "src": "38:22:20"
+        "src": "38:22:22"
       },
       {
         "abstract": false,
@@ -190,9 +190,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 8176,
+        "id": 10142,
         "linearizedBaseContracts": [
-          8176
+          10142
         ],
         "name": "IMiniswapV1Factory",
         "nodeType": "ContractDefinition",
@@ -201,7 +201,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "06f2bf62",
-            "id": 8175,
+            "id": 10141,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -209,18 +209,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 8171,
+              "id": 10137,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8170,
+                  "id": 10136,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 8175,
-                  "src": "118:7:20",
+                  "scope": 10141,
+                  "src": "118:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -228,10 +228,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8169,
+                    "id": 10135,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "118:7:20",
+                    "src": "118:7:22",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -242,21 +242,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "117:9:20"
+              "src": "117:9:22"
             },
             "returnParameters": {
-              "id": 8174,
+              "id": 10140,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8173,
+                  "id": 10139,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 8175,
-                  "src": "150:7:20",
+                  "scope": 10141,
+                  "src": "150:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -264,10 +264,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8172,
+                    "id": 10138,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "150:7:20",
+                    "src": "150:7:22",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -278,20 +278,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "149:9:20"
+              "src": "149:9:22"
             },
-            "scope": 8176,
-            "src": "97:62:20",
+            "scope": 10142,
+            "src": "97:62:22",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 8177,
-        "src": "62:99:20"
+        "scope": 10143,
+        "src": "62:99:22"
       }
     ],
-    "src": "38:124:20"
+    "src": "38:124:22"
   },
   "compiler": {
     "name": "solc",
@@ -299,7 +299,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.1",
-  "updatedAt": "2020-08-10T06:48:53.737Z",
+  "updatedAt": "2020-08-18T13:44:50.125Z",
   "devdoc": {
     "methods": {}
   },
