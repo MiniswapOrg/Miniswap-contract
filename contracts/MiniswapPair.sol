@@ -293,6 +293,7 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
         uint256 amount0Out,
         uint256 amount1Out,
         address to,
+        address originSender,
         bytes calldata data
     ) external override lock() {
         require(
@@ -347,7 +348,13 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
             );
         }
 
-        emit Swap(msg.sender, amount0In, amount1In, amount0Out, amount1Out, to);
+        {
+            uint _amount0In = amount0In;
+            uint _amount1In = amount1In;
+            uint _amount0Out = amount0Out;
+            uint _amount1Out = amount1Out;
+            emit Swap(msg.sender, _amount0In, _amount1In, _amount0Out, _amount1Out, to);
+        }
 
         {
             bool isWhiteAddr = IMiniswapMiner(miner).whitelistMap(
@@ -355,7 +362,7 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
             );
             if (isWhiteAddr && msg.sender != miner) {
                 uint256 balanceOfFee0 = IERC20(MINI).balanceOf(feeTemp);
-                address _to = to;
+                address _originSender = originSender;
                 uint256 fee0 = amount0In.mul(3).div(1000);
                 uint256 fee1 = amount1In.mul(3).div(1000);
                 if (fee0 > 0) {
@@ -364,7 +371,7 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
                     IMiniswapMiner(miner).mining(
                         factory,
                         feeTemp,
-                        _to,
+                        _originSender,
                         token0,
                         fee0
                     );
@@ -375,7 +382,7 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
                     IMiniswapMiner(miner).mining(
                         factory,
                         feeTemp,
-                        _to,
+                        _originSender,
                         token1,
                         fee1
                     );

@@ -225,7 +225,7 @@ contract MiniswapRouter is IMiniswapRouter {
             (uint amount0Out, uint amount1Out) = input == token0 ? (uint(0), amountOut) : (amountOut, uint(0));
             address to = i < path.length - 2 ? MiniswapLibrary.pairFor(factory, output, path[i + 2]) : _to;
             IMiniswapPair(MiniswapLibrary.pairFor(factory, input, output)).swap(
-                amount0Out, amount1Out, to, new bytes(0)
+                amount0Out, amount1Out, to, _to,new bytes(0)
             );
         }
     }
@@ -349,7 +349,7 @@ contract MiniswapRouter is IMiniswapRouter {
             }
             (uint amount0Out, uint amount1Out) = input == token0 ? (uint(0), amountOutput) : (amountOutput, uint(0));
             address to = i < path.length - 2 ? MiniswapLibrary.pairFor(factory, output, path[i + 2]) : _to;
-            pair.swap(amount0Out, amount1Out, to, new bytes(0));
+            pair.swap(amount0Out, amount1Out, to,_to, new bytes(0));
         }
     }
     function swapExactTokensForTokensSupportingFeeOnTransferTokens(

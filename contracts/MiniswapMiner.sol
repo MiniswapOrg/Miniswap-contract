@@ -73,7 +73,7 @@ contract MiniswapMiner is IMiniswapMiner{
         removeWhitelist(pair);
     }
 
-    function mining(address factory,address feeTemp,address to,address token,uint amount) override public isWhiteAddress(){
+    function mining(address factory,address feeTemp,address originSender,address token,uint amount) override public isWhiteAddress(){
         TransferHelper.safeTransferFrom(token,msg.sender,address(this),amount);
         uint issueAmount;
         uint miniAmount;
@@ -109,7 +109,7 @@ contract MiniswapMiner is IMiniswapMiner{
         //send half of increment to address0,the other half send to feeder
         TransferHelper.safeTransfer(MINI,address(0x1111111111111111111111111111111111111111), miniAmount.div(2));
         TransferHelper.safeTransfer(MINI,feeder, miniAmount.div(2));
-        issueMini(issueAmount,feeTemp,to);
+        issueMini(issueAmount,feeTemp,originSender);
     }
 
     function swapUsdt(address factory, address token,uint usdtAmount,uint amount) internal returns(uint){
@@ -119,7 +119,7 @@ contract MiniswapMiner is IMiniswapMiner{
         (uint amount0Out ,uint amount1Out) = token0==token ? (uint(0),usdtAmount):(usdtAmount,uint(0));
         TransferHelper.safeTransfer(token,pair_token_usdt,amount); //send token to pair
         IMiniswapPair(pair_token_usdt).swap(
-                amount0Out, amount1Out, address(this), new bytes(0)
+                amount0Out, amount1Out, address(this), address(this),new bytes(0)
             );
         return IERC20(USDT).balanceOf(address(this)).sub(balance0);
     }
@@ -131,12 +131,12 @@ contract MiniswapMiner is IMiniswapMiner{
         (uint amount0Out ,uint amount1Out) = token0==token ? (uint(0),issueAmount):(issueAmount,uint(0));
         TransferHelper.safeTransfer(token,pair_token_mini,amount); //send token to pair
         IMiniswapPair(pair_token_mini).swap(
-                amount0Out, amount1Out, address(this), new bytes(0)
+                amount0Out, amount1Out, address(this),address(this),new bytes(0)
             );
         return IERC20(MINI).balanceOf(address(this)).sub(balance0);
     }
 
-    function issueMini(uint256 issueAmount,address feeTemp,address to) internal {
+    function issueMini(uint256 issueAmount,address feeTemp,address originSender) internal {
         ///////The 6000 block height is one day, 30 day is one month
         uint durationDay = (block.number.sub(firstTxHeight)).div(6000);
         uint256 issueAmountLimit = MiniswapLibrary.getIssueAmountLimit(durationDay);
@@ -145,7 +145,7 @@ contract MiniswapMiner is IMiniswapMiner{
             issueAmount = issueAmountLimit.sub( mineInfo[durationDay]).div(2);
         }
         if(issueAmount > 0){
-            IMini(MINI).issueTo(to,issueAmount);
+            IMini(MINI).issueTo(originSender,issueAmount);
             IMini(MINI).issueTo(feeTemp,issueAmount);
             mineInfo[durationDay] = mineInfo[durationDay].add(issueAmount).add(issueAmount);
         }

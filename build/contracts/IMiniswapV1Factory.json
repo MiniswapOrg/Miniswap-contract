@@ -33,15 +33,15 @@
     "absolutePath": "/Users/yinwei/work/miniswap/contracts/interfaces/V1/IMiniswapV1Factory.sol",
     "exportedSymbols": {
       "IMiniswapV1Factory": [
-        10142
+        10173
       ]
     },
-    "id": 10143,
+    "id": 10174,
     "license": "SimPL-2.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 10134,
+        "id": 10165,
         "literals": [
           "solidity",
           "=",
@@ -58,9 +58,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 10142,
+        "id": 10173,
         "linearizedBaseContracts": [
-          10142
+          10173
         ],
         "name": "IMiniswapV1Factory",
         "nodeType": "ContractDefinition",
@@ -69,7 +69,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "06f2bf62",
-            "id": 10141,
+            "id": 10172,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -77,17 +77,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 10137,
+              "id": 10168,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10136,
+                  "id": 10167,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 10141,
+                  "scope": 10172,
                   "src": "118:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -96,7 +96,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10135,
+                    "id": 10166,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "118:7:22",
@@ -113,17 +113,17 @@
               "src": "117:9:22"
             },
             "returnParameters": {
-              "id": 10140,
+              "id": 10171,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10139,
+                  "id": 10170,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 10141,
+                  "scope": 10172,
                   "src": "150:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -132,7 +132,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10138,
+                    "id": 10169,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "150:7:22",
@@ -148,14 +148,14 @@
               ],
               "src": "149:9:22"
             },
-            "scope": 10142,
+            "scope": 10173,
             "src": "97:62:22",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 10143,
+        "scope": 10174,
         "src": "62:99:22"
       }
     ],
@@ -165,15 +165,15 @@
     "absolutePath": "/Users/yinwei/work/miniswap/contracts/interfaces/V1/IMiniswapV1Factory.sol",
     "exportedSymbols": {
       "IMiniswapV1Factory": [
-        10142
+        10173
       ]
     },
-    "id": 10143,
+    "id": 10174,
     "license": "SimPL-2.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 10134,
+        "id": 10165,
         "literals": [
           "solidity",
           "=",
@@ -190,9 +190,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 10142,
+        "id": 10173,
         "linearizedBaseContracts": [
-          10142
+          10173
         ],
         "name": "IMiniswapV1Factory",
         "nodeType": "ContractDefinition",
@@ -201,7 +201,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "06f2bf62",
-            "id": 10141,
+            "id": 10172,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -209,17 +209,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 10137,
+              "id": 10168,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10136,
+                  "id": 10167,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 10141,
+                  "scope": 10172,
                   "src": "118:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -228,7 +228,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10135,
+                    "id": 10166,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "118:7:22",
@@ -245,17 +245,17 @@
               "src": "117:9:22"
             },
             "returnParameters": {
-              "id": 10140,
+              "id": 10171,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 10139,
+                  "id": 10170,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 10141,
+                  "scope": 10172,
                   "src": "150:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -264,7 +264,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 10138,
+                    "id": 10169,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "150:7:22",
@@ -280,14 +280,14 @@
               ],
               "src": "149:9:22"
             },
-            "scope": 10142,
+            "scope": 10173,
             "src": "97:62:22",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 10143,
+        "scope": 10174,
         "src": "62:99:22"
       }
     ],
@@ -299,7 +299,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.1",
-  "updatedAt": "2020-08-18T13:44:50.125Z",
+  "updatedAt": "2020-08-20T13:08:20.278Z",
   "devdoc": {
     "methods": {}
   },

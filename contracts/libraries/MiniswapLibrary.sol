@@ -16,13 +16,13 @@ library MiniswapLibrary {
     }
 
     // calculates the CREATE2 address for a pair without making any external calls
-    function pairFor(address factory, address tokenA, address tokenB)  internal pure returns (address pair) {
+    function pairFor(address factory, address tokenA, address tokenB) internal pure returns (address pair) {
         (address token0, address token1) = sortTokens(tokenA, tokenB);
         pair = address(uint(keccak256(abi.encodePacked(
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'f4e5803448f77627e58466881f39037111359a1aef599373b9f33b33cbf00106' // init code hash
+                hex'537b066e8372b4e8c99b61fd5d808fd706f5aaf269cde5ce02129d9678dea143' // init code hash
             ))));
     }
 
