@@ -22,7 +22,7 @@ library MiniswapLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'537b066e8372b4e8c99b61fd5d808fd706f5aaf269cde5ce02129d9678dea143' // init code hash
+                hex'ce433b886c281f53164ae7a190981e6b8d6873236496ff76bad740af6895efa7' // init code hash
             ))));
     }
 

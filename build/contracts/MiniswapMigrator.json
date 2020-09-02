@@ -112,7 +112,7 @@
         "id": 671,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 11995,
+        "sourceUnit": 11981,
         "src": "62:40:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -123,7 +123,7 @@
         "id": 672,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 9436,
+        "sourceUnit": 9448,
         "src": "104:44:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -134,7 +134,7 @@
         "id": 673,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 10174,
+        "sourceUnit": 10186,
         "src": "149:48:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -145,7 +145,7 @@
         "id": 674,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 10164,
+        "sourceUnit": 10176,
         "src": "198:49:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -156,7 +156,7 @@
         "id": 675,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 10088,
+        "sourceUnit": 10100,
         "src": "248:42:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -167,7 +167,7 @@
         "id": 676,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 9193,
+        "sourceUnit": 9205,
         "src": "291:33:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -182,10 +182,10 @@
               "id": 677,
               "name": "IMiniswapMigrator",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9435,
+              "referencedDeclaration": 9447,
               "src": "355:17:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IMiniswapMigrator_$9435",
+                "typeIdentifier": "t_contract$_IMiniswapMigrator_$9447",
                 "typeString": "contract IMiniswapMigrator"
               }
             },
@@ -195,7 +195,7 @@
           }
         ],
         "contractDependencies": [
-          9435
+          9447
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -203,7 +203,7 @@
         "id": 838,
         "linearizedBaseContracts": [
           838,
-          9435
+          9447
         ],
         "name": "MiniswapMigrator",
         "nodeType": "ContractDefinition",
@@ -220,7 +220,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+              "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
               "typeString": "contract IMiniswapV1Factory"
             },
             "typeName": {
@@ -228,10 +228,10 @@
               "id": 679,
               "name": "IMiniswapV1Factory",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 10173,
+              "referencedDeclaration": 10185,
               "src": "379:18:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                 "typeString": "contract IMiniswapV1Factory"
               }
             },
@@ -250,7 +250,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+              "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
               "typeString": "contract IMiniswapRouter"
             },
             "typeName": {
@@ -258,10 +258,10 @@
               "id": 681,
               "name": "IMiniswapRouter",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 10087,
+              "referencedDeclaration": 10099,
               "src": "423:15:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                 "typeString": "contract IMiniswapRouter"
               }
             },
@@ -291,7 +291,7 @@
                       "referencedDeclaration": 680,
                       "src": "528:9:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                        "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                         "typeString": "contract IMiniswapV1Factory"
                       }
                     },
@@ -325,10 +325,10 @@
                         "name": "IMiniswapV1Factory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 10173,
+                        "referencedDeclaration": 10185,
                         "src": "540:18:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IMiniswapV1Factory_$10173_$",
+                          "typeIdentifier": "t_type$_t_contract$_IMiniswapV1Factory_$10185_$",
                           "typeString": "type(contract IMiniswapV1Factory)"
                         }
                       },
@@ -343,13 +343,13 @@
                       "src": "540:30:3",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                        "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                         "typeString": "contract IMiniswapV1Factory"
                       }
                     },
                     "src": "528:42:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                      "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                       "typeString": "contract IMiniswapV1Factory"
                     }
                   },
@@ -374,7 +374,7 @@
                       "referencedDeclaration": 682,
                       "src": "580:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                        "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                         "typeString": "contract IMiniswapRouter"
                       }
                     },
@@ -408,10 +408,10 @@
                         "name": "IMiniswapRouter",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 10087,
+                        "referencedDeclaration": 10099,
                         "src": "589:15:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IMiniswapRouter_$10087_$",
+                          "typeIdentifier": "t_type$_t_contract$_IMiniswapRouter_$10099_$",
                           "typeString": "type(contract IMiniswapRouter)"
                         }
                       },
@@ -426,13 +426,13 @@
                       "src": "589:24:3",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                        "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                         "typeString": "contract IMiniswapRouter"
                       }
                     },
                     "src": "580:33:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                      "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                       "typeString": "contract IMiniswapRouter"
                     }
                   },
@@ -562,7 +562,7 @@
           },
           {
             "baseFunctions": [
-              9434
+              9446
             ],
             "body": {
               "id": 836,
@@ -586,7 +586,7 @@
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                        "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                         "typeString": "contract IMiniswapV1Exchange"
                       },
                       "typeName": {
@@ -594,10 +594,10 @@
                         "id": 720,
                         "name": "IMiniswapV1Exchange",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 10163,
+                        "referencedDeclaration": 10175,
                         "src": "1022:19:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                           "typeString": "contract IMiniswapV1Exchange"
                         }
                       },
@@ -642,7 +642,7 @@
                             "referencedDeclaration": 680,
                             "src": "1075:9:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                              "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                               "typeString": "contract IMiniswapV1Factory"
                             }
                           },
@@ -653,7 +653,7 @@
                           "lValueRequested": false,
                           "memberName": "getExchange",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 10172,
+                          "referencedDeclaration": 10184,
                           "src": "1075:21:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_address_$",
@@ -687,10 +687,10 @@
                       "name": "IMiniswapV1Exchange",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 10163,
+                      "referencedDeclaration": 10175,
                       "src": "1055:19:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_IMiniswapV1Exchange_$10163_$",
+                        "typeIdentifier": "t_type$_t_contract$_IMiniswapV1Exchange_$10175_$",
                         "typeString": "type(contract IMiniswapV1Exchange)"
                       }
                     },
@@ -705,7 +705,7 @@
                     "src": "1055:49:3",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                      "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                       "typeString": "contract IMiniswapV1Exchange"
                     }
                   },
@@ -796,7 +796,7 @@
                         "referencedDeclaration": 721,
                         "src": "1133:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                           "typeString": "contract IMiniswapV1Exchange"
                         }
                       },
@@ -807,7 +807,7 @@
                       "lValueRequested": false,
                       "memberName": "balanceOf",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 10116,
+                      "referencedDeclaration": 10128,
                       "src": "1133:20:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
@@ -967,7 +967,7 @@
                             "referencedDeclaration": 721,
                             "src": "1183:10:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                              "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                               "typeString": "contract IMiniswapV1Exchange"
                             }
                           },
@@ -978,7 +978,7 @@
                           "lValueRequested": false,
                           "memberName": "transferFrom",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 10127,
+                          "referencedDeclaration": 10139,
                           "src": "1183:23:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -1290,7 +1290,7 @@
                         "referencedDeclaration": 721,
                         "src": "1322:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                           "typeString": "contract IMiniswapV1Exchange"
                         }
                       },
@@ -1301,7 +1301,7 @@
                       "lValueRequested": false,
                       "memberName": "removeLiquidity",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 10142,
+                      "referencedDeclaration": 10154,
                       "src": "1322:26:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$",
@@ -1355,7 +1355,7 @@
                             "referencedDeclaration": 682,
                             "src": "1429:6:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                              "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                               "typeString": "contract IMiniswapRouter"
                             }
                           }
@@ -1363,7 +1363,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                              "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                               "typeString": "contract IMiniswapRouter"
                             }
                           ],
@@ -1439,10 +1439,10 @@
                         "name": "TransferHelper",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11994,
+                        "referencedDeclaration": 11980,
                         "src": "1387:14:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11994_$",
+                          "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11980_$",
                           "typeString": "type(library TransferHelper)"
                         }
                       },
@@ -1453,7 +1453,7 @@
                       "lValueRequested": false,
                       "memberName": "safeApprove",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 11879,
+                      "referencedDeclaration": 11865,
                       "src": "1387:26:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -1665,7 +1665,7 @@
                           "referencedDeclaration": 682,
                           "src": "1500:6:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                            "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                             "typeString": "contract IMiniswapRouter"
                           }
                         },
@@ -1676,7 +1676,7 @@
                         "lValueRequested": false,
                         "memberName": "addLiquidityETH",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 9763,
+                        "referencedDeclaration": 9775,
                         "src": "1500:22:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_external_payable$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$_t_address_$_t_uint256_$returns$_t_uint256_$_t_uint256_$_t_uint256_$",
@@ -1928,10 +1928,10 @@
                                 "name": "TransferHelper",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 11994,
+                                "referencedDeclaration": 11980,
                                 "src": "2124:14:3",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11994_$",
+                                  "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11980_$",
                                   "typeString": "type(library TransferHelper)"
                                 }
                               },
@@ -1942,7 +1942,7 @@
                               "lValueRequested": false,
                               "memberName": "safeTransferETH",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 11993,
+                              "referencedDeclaration": 11979,
                               "src": "2124:30:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -2008,7 +2008,7 @@
                                   "referencedDeclaration": 682,
                                   "src": "1789:6:3",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                                    "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                                     "typeString": "contract IMiniswapRouter"
                                   }
                                 }
@@ -2016,7 +2016,7 @@
                               "expression": {
                                 "argumentTypes": [
                                   {
-                                    "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                                    "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                                     "typeString": "contract IMiniswapRouter"
                                   }
                                 ],
@@ -2097,10 +2097,10 @@
                               "name": "TransferHelper",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11994,
+                              "referencedDeclaration": 11980,
                               "src": "1747:14:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11994_$",
+                                "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11980_$",
                                 "typeString": "type(library TransferHelper)"
                               }
                             },
@@ -2111,7 +2111,7 @@
                             "lValueRequested": false,
                             "memberName": "safeApprove",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 11879,
+                            "referencedDeclaration": 11865,
                             "src": "1747:26:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -2250,10 +2250,10 @@
                               "name": "TransferHelper",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11994,
+                              "referencedDeclaration": 11980,
                               "src": "1868:14:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11994_$",
+                                "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11980_$",
                                 "typeString": "type(library TransferHelper)"
                               }
                             },
@@ -2264,7 +2264,7 @@
                             "lValueRequested": false,
                             "memberName": "safeTransfer",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 11922,
+                            "referencedDeclaration": 11908,
                             "src": "1868:27:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -2505,7 +2505,7 @@
         "id": 671,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 11995,
+        "sourceUnit": 11981,
         "src": "62:40:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2516,7 +2516,7 @@
         "id": 672,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 9436,
+        "sourceUnit": 9448,
         "src": "104:44:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2527,7 +2527,7 @@
         "id": 673,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 10174,
+        "sourceUnit": 10186,
         "src": "149:48:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2538,7 +2538,7 @@
         "id": 674,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 10164,
+        "sourceUnit": 10176,
         "src": "198:49:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2549,7 +2549,7 @@
         "id": 675,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 10088,
+        "sourceUnit": 10100,
         "src": "248:42:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2560,7 +2560,7 @@
         "id": 676,
         "nodeType": "ImportDirective",
         "scope": 839,
-        "sourceUnit": 9193,
+        "sourceUnit": 9205,
         "src": "291:33:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2575,10 +2575,10 @@
               "id": 677,
               "name": "IMiniswapMigrator",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9435,
+              "referencedDeclaration": 9447,
               "src": "355:17:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IMiniswapMigrator_$9435",
+                "typeIdentifier": "t_contract$_IMiniswapMigrator_$9447",
                 "typeString": "contract IMiniswapMigrator"
               }
             },
@@ -2588,7 +2588,7 @@
           }
         ],
         "contractDependencies": [
-          9435
+          9447
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -2596,7 +2596,7 @@
         "id": 838,
         "linearizedBaseContracts": [
           838,
-          9435
+          9447
         ],
         "name": "MiniswapMigrator",
         "nodeType": "ContractDefinition",
@@ -2613,7 +2613,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+              "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
               "typeString": "contract IMiniswapV1Factory"
             },
             "typeName": {
@@ -2621,10 +2621,10 @@
               "id": 679,
               "name": "IMiniswapV1Factory",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 10173,
+              "referencedDeclaration": 10185,
               "src": "379:18:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                 "typeString": "contract IMiniswapV1Factory"
               }
             },
@@ -2643,7 +2643,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+              "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
               "typeString": "contract IMiniswapRouter"
             },
             "typeName": {
@@ -2651,10 +2651,10 @@
               "id": 681,
               "name": "IMiniswapRouter",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 10087,
+              "referencedDeclaration": 10099,
               "src": "423:15:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                 "typeString": "contract IMiniswapRouter"
               }
             },
@@ -2684,7 +2684,7 @@
                       "referencedDeclaration": 680,
                       "src": "528:9:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                        "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                         "typeString": "contract IMiniswapV1Factory"
                       }
                     },
@@ -2718,10 +2718,10 @@
                         "name": "IMiniswapV1Factory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 10173,
+                        "referencedDeclaration": 10185,
                         "src": "540:18:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IMiniswapV1Factory_$10173_$",
+                          "typeIdentifier": "t_type$_t_contract$_IMiniswapV1Factory_$10185_$",
                           "typeString": "type(contract IMiniswapV1Factory)"
                         }
                       },
@@ -2736,13 +2736,13 @@
                       "src": "540:30:3",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                        "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                         "typeString": "contract IMiniswapV1Factory"
                       }
                     },
                     "src": "528:42:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                      "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                       "typeString": "contract IMiniswapV1Factory"
                     }
                   },
@@ -2767,7 +2767,7 @@
                       "referencedDeclaration": 682,
                       "src": "580:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                        "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                         "typeString": "contract IMiniswapRouter"
                       }
                     },
@@ -2801,10 +2801,10 @@
                         "name": "IMiniswapRouter",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 10087,
+                        "referencedDeclaration": 10099,
                         "src": "589:15:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IMiniswapRouter_$10087_$",
+                          "typeIdentifier": "t_type$_t_contract$_IMiniswapRouter_$10099_$",
                           "typeString": "type(contract IMiniswapRouter)"
                         }
                       },
@@ -2819,13 +2819,13 @@
                       "src": "589:24:3",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                        "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                         "typeString": "contract IMiniswapRouter"
                       }
                     },
                     "src": "580:33:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                      "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                       "typeString": "contract IMiniswapRouter"
                     }
                   },
@@ -2955,7 +2955,7 @@
           },
           {
             "baseFunctions": [
-              9434
+              9446
             ],
             "body": {
               "id": 836,
@@ -2979,7 +2979,7 @@
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                        "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                         "typeString": "contract IMiniswapV1Exchange"
                       },
                       "typeName": {
@@ -2987,10 +2987,10 @@
                         "id": 720,
                         "name": "IMiniswapV1Exchange",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 10163,
+                        "referencedDeclaration": 10175,
                         "src": "1022:19:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                           "typeString": "contract IMiniswapV1Exchange"
                         }
                       },
@@ -3035,7 +3035,7 @@
                             "referencedDeclaration": 680,
                             "src": "1075:9:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10173",
+                              "typeIdentifier": "t_contract$_IMiniswapV1Factory_$10185",
                               "typeString": "contract IMiniswapV1Factory"
                             }
                           },
@@ -3046,7 +3046,7 @@
                           "lValueRequested": false,
                           "memberName": "getExchange",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 10172,
+                          "referencedDeclaration": 10184,
                           "src": "1075:21:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_address_$",
@@ -3080,10 +3080,10 @@
                       "name": "IMiniswapV1Exchange",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 10163,
+                      "referencedDeclaration": 10175,
                       "src": "1055:19:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_IMiniswapV1Exchange_$10163_$",
+                        "typeIdentifier": "t_type$_t_contract$_IMiniswapV1Exchange_$10175_$",
                         "typeString": "type(contract IMiniswapV1Exchange)"
                       }
                     },
@@ -3098,7 +3098,7 @@
                     "src": "1055:49:3",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                      "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                       "typeString": "contract IMiniswapV1Exchange"
                     }
                   },
@@ -3189,7 +3189,7 @@
                         "referencedDeclaration": 721,
                         "src": "1133:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                           "typeString": "contract IMiniswapV1Exchange"
                         }
                       },
@@ -3200,7 +3200,7 @@
                       "lValueRequested": false,
                       "memberName": "balanceOf",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 10116,
+                      "referencedDeclaration": 10128,
                       "src": "1133:20:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
@@ -3360,7 +3360,7 @@
                             "referencedDeclaration": 721,
                             "src": "1183:10:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                              "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                               "typeString": "contract IMiniswapV1Exchange"
                             }
                           },
@@ -3371,7 +3371,7 @@
                           "lValueRequested": false,
                           "memberName": "transferFrom",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 10127,
+                          "referencedDeclaration": 10139,
                           "src": "1183:23:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -3683,7 +3683,7 @@
                         "referencedDeclaration": 721,
                         "src": "1322:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10163",
+                          "typeIdentifier": "t_contract$_IMiniswapV1Exchange_$10175",
                           "typeString": "contract IMiniswapV1Exchange"
                         }
                       },
@@ -3694,7 +3694,7 @@
                       "lValueRequested": false,
                       "memberName": "removeLiquidity",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 10142,
+                      "referencedDeclaration": 10154,
                       "src": "1322:26:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$",
@@ -3748,7 +3748,7 @@
                             "referencedDeclaration": 682,
                             "src": "1429:6:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                              "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                               "typeString": "contract IMiniswapRouter"
                             }
                           }
@@ -3756,7 +3756,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                              "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                               "typeString": "contract IMiniswapRouter"
                             }
                           ],
@@ -3832,10 +3832,10 @@
                         "name": "TransferHelper",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11994,
+                        "referencedDeclaration": 11980,
                         "src": "1387:14:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11994_$",
+                          "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11980_$",
                           "typeString": "type(library TransferHelper)"
                         }
                       },
@@ -3846,7 +3846,7 @@
                       "lValueRequested": false,
                       "memberName": "safeApprove",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 11879,
+                      "referencedDeclaration": 11865,
                       "src": "1387:26:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -4058,7 +4058,7 @@
                           "referencedDeclaration": 682,
                           "src": "1500:6:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                            "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                             "typeString": "contract IMiniswapRouter"
                           }
                         },
@@ -4069,7 +4069,7 @@
                         "lValueRequested": false,
                         "memberName": "addLiquidityETH",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 9763,
+                        "referencedDeclaration": 9775,
                         "src": "1500:22:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_external_payable$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$_t_address_$_t_uint256_$returns$_t_uint256_$_t_uint256_$_t_uint256_$",
@@ -4321,10 +4321,10 @@
                                 "name": "TransferHelper",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 11994,
+                                "referencedDeclaration": 11980,
                                 "src": "2124:14:3",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11994_$",
+                                  "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11980_$",
                                   "typeString": "type(library TransferHelper)"
                                 }
                               },
@@ -4335,7 +4335,7 @@
                               "lValueRequested": false,
                               "memberName": "safeTransferETH",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 11993,
+                              "referencedDeclaration": 11979,
                               "src": "2124:30:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -4401,7 +4401,7 @@
                                   "referencedDeclaration": 682,
                                   "src": "1789:6:3",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                                    "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                                     "typeString": "contract IMiniswapRouter"
                                   }
                                 }
@@ -4409,7 +4409,7 @@
                               "expression": {
                                 "argumentTypes": [
                                   {
-                                    "typeIdentifier": "t_contract$_IMiniswapRouter_$10087",
+                                    "typeIdentifier": "t_contract$_IMiniswapRouter_$10099",
                                     "typeString": "contract IMiniswapRouter"
                                   }
                                 ],
@@ -4490,10 +4490,10 @@
                               "name": "TransferHelper",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11994,
+                              "referencedDeclaration": 11980,
                               "src": "1747:14:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11994_$",
+                                "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11980_$",
                                 "typeString": "type(library TransferHelper)"
                               }
                             },
@@ -4504,7 +4504,7 @@
                             "lValueRequested": false,
                             "memberName": "safeApprove",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 11879,
+                            "referencedDeclaration": 11865,
                             "src": "1747:26:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -4643,10 +4643,10 @@
                               "name": "TransferHelper",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 11994,
+                              "referencedDeclaration": 11980,
                               "src": "1868:14:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11994_$",
+                                "typeIdentifier": "t_type$_t_contract$_TransferHelper_$11980_$",
                                 "typeString": "type(library TransferHelper)"
                               }
                             },
@@ -4657,7 +4657,7 @@
                             "lValueRequested": false,
                             "memberName": "safeTransfer",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 11922,
+                            "referencedDeclaration": 11908,
                             "src": "1868:27:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -4876,7 +4876,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.1",
-  "updatedAt": "2020-08-20T17:21:08.553Z",
+  "updatedAt": "2020-09-02T06:39:55.032Z",
   "devdoc": {
     "methods": {}
   },

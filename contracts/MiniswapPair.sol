@@ -178,39 +178,38 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
         }
     }
 
-    function _settlementMineFee(address to)
+    function _settlementMineFee(uint liquidity,address to)
         private
         returns (uint256 amountMINI)
     {
+        if(userInFeeAmount[to] == 0 || totalFeeAmount == 0){
+            return 0;
+        } 
+
         uint256 balance = IERC20(MINI).balanceOf(feeTemp);
-        uint256 durationFee = totalFeeAmount.sub(userInFeeAmount[to]);
-        if (totalFeeAmount == 0) {
-            amountMINI = 0;
-        } else {
-            amountMINI = balanceOf[address(this)]
-                .mul(balance)
-                .mul(durationFee)
-                .div(totalFeeAmount)
-                .div(totalSupply);
-        }
+        uint256 durationFee = totalFeeAmount.add(1).sub(userInFeeAmount[to]);
+        amountMINI = liquidity
+                    .mul(balance)
+                    .mul(durationFee)
+                    .div(totalFeeAmount)
+                    .div(totalSupply);
         if (amountMINI > 0) {
             TokenTemp(feeTemp).sendTokenTo(MINI, to, amountMINI);
         }
-        userInFeeAmount[to] = 0;
+        userInFeeAmount[to] = totalFeeAmount;
     }
 
     function getMineFeeAmount(address to) external override view returns(uint amountMINI){
+         if(userInFeeAmount[to] == 0 || totalFeeAmount == 0){
+            return 0;
+        } 
         uint256 balance = IERC20(MINI).balanceOf(feeTemp);
-        uint256 durationFee = totalFeeAmount.sub(userInFeeAmount[to]);
-        if (totalFeeAmount == 0) {
-            amountMINI = 0;
-        } else {
-            amountMINI = balanceOf[address(this)]
-                .mul(balance)
-                .mul(durationFee)
-                .div(totalFeeAmount)
-                .div(totalSupply);
-        }
+        uint256 durationFee = totalFeeAmount.add(1).sub(userInFeeAmount[to]);
+        amountMINI = balanceOf[to]
+                    .mul(balance)
+                    .mul(durationFee)
+                    .div(totalFeeAmount)
+                    .div(totalSupply);
     }
 
     // this low-level function should be called from a contract which performs important safety checks
@@ -221,7 +220,7 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
         returns (uint256 liquidity)
     {
         if (userInFeeAmount[to] > 0) {
-            _settlementMineFee(to);
+            _settlementMineFee(balanceOf[to],to);
         }
         (uint112 _reserve0, uint112 _reserve1, ) = getReserves(); // gas savings
         uint256 balance0 = IERC20(token0).balanceOf(address(this));
@@ -242,7 +241,7 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
         }
         require(liquidity > 0, "Miniswap: INSUFFICIENT_LIQUIDITY_MINTED");
         _mint(to, liquidity);
-        userInFeeAmount[to] = totalFeeAmount;
+        userInFeeAmount[to] = totalFeeAmount + 1;
         _update(balance0, balance1, _reserve0, _reserve1);
         if (feeOn) kLast = uint256(reserve0).mul(reserve1); // reserve0 and reserve1 are up-to-date
         emit Mint(msg.sender, amount0, amount1);
@@ -274,7 +273,7 @@ contract MiniswapPair is IMiniswapPair, MiniswapERC20 {
             amount0 > 0 && amount1 > 0,
             "Miniswap: INSUFFICIENT_LIQUIDITY_BURNED"
         );
-        amountMINI = _settlementMineFee(to);
+        amountMINI = _settlementMineFee(liquidity + balanceOf[to],to);
         _burn(address(this), liquidity);
         _safeTransfer(_token0, to, amount0);
         _safeTransfer(_token1, to, amount1);

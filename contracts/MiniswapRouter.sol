@@ -289,7 +289,10 @@ contract MiniswapRouter is IMiniswapRouter {
         uint b0 = IERC20(MINI).balanceOf(address(this));
         _swap(amounts, path, address(this));
         uint b1 = IERC20(MINI).balanceOf(address(this));
-        IERC20(MINI).transfer(to,b1-b0);
+        if(b1-b0 > 0){
+            IERC20(MINI).transfer(to,b1-b0);
+        }
+
         IWETH(WETH).withdraw(amounts[amounts.length - 1]);
         TransferHelper.safeTransferETH(to, amounts[amounts.length - 1]);
     }
@@ -310,7 +313,9 @@ contract MiniswapRouter is IMiniswapRouter {
         uint b0 = IERC20(MINI).balanceOf(address(this));
         _swap(amounts, path, address(this));
         uint b1 = IERC20(MINI).balanceOf(address(this));
-        IERC20(MINI).transfer(to,b1-b0);
+        if(b1-b0 > 0){
+            IERC20(MINI).transfer(to,b1-b0);
+        }
         IWETH(WETH).withdraw(amounts[amounts.length - 1]);
         TransferHelper.safeTransferETH(to, amounts[amounts.length - 1]);
     }
