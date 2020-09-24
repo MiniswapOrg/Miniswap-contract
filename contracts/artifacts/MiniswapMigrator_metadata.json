@@ -1,0 +1,137 @@
+{
+	"compiler": {
+		"version": "0.6.9+commit.3e3065ac"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_factoryV1",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_factoryV2",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "factoryV1",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "factoryV2",
+				"outputs": [
+					{
+						"internalType": "contract IMiniswapV2Factory",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IMiniswapV1Pair",
+						"name": "pairV1",
+						"type": "address"
+					}
+				],
+				"name": "migrate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/MiniswapMigrator.sol": "MiniswapMigrator"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/MiniswapMigrator.sol": {
+			"keccak256": "0x07f55a3ec3fac5964040167dadeae03ccc64979220e9462e21ae0243713d746e",
+			"license": "SimPL-2.0",
+			"urls": [
+				"bzz-raw://ddca58111cd0b94acf1f2346eabb50b8d0a89eaaefa2da81c74684a8705b3da4",
+				"dweb:/ipfs/QmbaUyoMhrdLxvHpM3z2v2ViKGUALXc6nUYmGouXQwjBhE"
+			]
+		},
+		"localhost/interfaces/IMiniswapV2Factory.sol": {
+			"keccak256": "0xba074be039aad100352a28354616af7e373354aa82e1f7dd4ac2330edf80b0ec",
+			"license": "SimPL-2.0",
+			"urls": [
+				"bzz-raw://6f962c75a4829da582d663b787e462f4248d11493471e561d29d1925be18773e",
+				"dweb:/ipfs/QmYLW5G5KPSxLYQjscoZ92C9nWgdZ2gJ4UCXnfQcbgo9rp"
+			]
+		},
+		"localhost/interfaces/IMiniswapV2Migrator.sol": {
+			"keccak256": "0x676ca14fbeb14838aaf5d60ffa7d3f1cccbea0268d06affcdb3d11d586c573ab",
+			"license": "SimPL-2.0",
+			"urls": [
+				"bzz-raw://c53658f54c3379282b898e80f64e7241d508ba673900d0bc3cc6edf493b12bf8",
+				"dweb:/ipfs/QmaCNrRRYgsL2Tqb1NeWnDmtH4wiTsK1Sqcjvm4s8bFdBA"
+			]
+		},
+		"localhost/interfaces/IMiniswapV2Pair.sol": {
+			"keccak256": "0xd74b480230cab1c0b172d65a86375403f7e7bff39b3bc371a9fd5de1efc1615a",
+			"license": "SimPL-2.0",
+			"urls": [
+				"bzz-raw://9c6d76fa4a1245b4cc18aa0f53881da2406f9d60af8cb0200b96efac1bd10da0",
+				"dweb:/ipfs/QmVmWJg8DRFXyVcWBzfsrQPMB7xowZyhspUGW8rvvmtVJe"
+			]
+		},
+		"localhost/interfaces/V1/IMiniswapV1Factory.sol": {
+			"keccak256": "0xa51a92df4009bd9313a26633850918f656f9f118db0475c535e12ea79ac1a361",
+			"license": "SimPL-2.0",
+			"urls": [
+				"bzz-raw://7139cb2b5d3347c6d1630d8fd3a4ac585e5b9a4df2b599bc438afdd6260b394a",
+				"dweb:/ipfs/QmbKsw2bHyNHQb7MRATU1vyfbRa32oaMKWtMbVhnXKN6V1"
+			]
+		},
+		"localhost/interfaces/V1/IMiniswapV1Pair.sol": {
+			"keccak256": "0x1537d4f63ec4ceb38d843d3bcce5ef7bb92b75bf38e601bd4981ad40be6f6b83",
+			"license": "SimPL-2.0",
+			"urls": [
+				"bzz-raw://cbb64181940feb5a6b06ae6d434737549960f3f1eafe1d8fc9475332c3dfe5ff",
+				"dweb:/ipfs/QmfFcPthLDmuPuqqt4gRPE7mVELrNsny8igPKEW1H76M29"
+			]
+		}
+	},
+	"version": 1
+}

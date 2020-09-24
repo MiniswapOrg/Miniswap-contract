@@ -1,0 +1,42 @@
+{
+	"compiler": {
+		"version": "0.6.9+commit.3e3065ac"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "These functions deal with verification of Merkle trees (hash trees),",
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/libraries/MerkleDistributor.sol": "MerkleProof"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/libraries/MerkleDistributor.sol": {
+			"keccak256": "0xa2e29ea659d2887d29e8daf8c85268fd42bab6bedb92974abfef45480f91e99f",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://fb76a51d7af30691feba0bf9de06173a146a6e958b16c3ee6a015dc7a2b5c602",
+				"dweb:/ipfs/QmfZf3KhAKDooSnn5kKJStzTULz5woWpe3vkcVpvjFT1nU"
+			]
+		}
+	},
+	"version": 1
+}
